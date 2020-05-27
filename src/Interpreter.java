@@ -126,13 +126,12 @@ public class Interpreter {
            for (Map.Entry<String, Integer> entry : addedValues.entrySet()) {
             if (entry.getKey().equals(printVar)) {
                 return entry.getValue();
-            } else {
-                System.out.println("Syntax Error: Undefine variable, " + printVar + " in the PRINT statement");
-            }
+            } 
         }
           
             
         }
+        System.out.println("Syntax Error: Undefine variable, " + printVar + " in the PRINT statement");
         return 0;
     }
 
@@ -151,17 +150,18 @@ public class Interpreter {
         for (Map.Entry<String, Integer> entry : addedValues.entrySet()) {
             if (entry.getKey().equals(n)) {
                 return entry.getValue();
-            } else {
-                System.out.println("Syntax Error: Undefine variable, " + n + " in the ADD statement");
-            }
+            } 
         }
 
         try {
             Integer rawInt = Integer.parseInt(n);
             return rawInt;
         } catch(Exception ex){
+            System.out.println("Syntax Error: Undefine variable in the ADD statement");
             return null;
         }
+
+        
 
         //return null;
     }
