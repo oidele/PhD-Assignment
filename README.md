@@ -1,14 +1,9 @@
-## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+### 1. Executing the code with the Program1.xml file without any error in the source file
+![program1](/resources/program1.PNG)
 
-## Folder Structure
+### 2. Executing the code with the Program2.xml file without any error in the source file
+![program2](/resources/program2.PNG)
 
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-## Dependency Management
-
-The `JAVA DEPENDENCIES` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-pack/blob/master/release-notes/v0.9.0.md#work-with-jar-files-directly).
+### 3. Executing the code with the Program2.xml file with error in the print statement
+![program2](/resources/program2-error-print.PNG)
