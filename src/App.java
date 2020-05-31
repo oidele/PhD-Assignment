@@ -10,7 +10,12 @@ public class App {
             String text = cmd.next();
             Interpreter interpreter = new Interpreter(text);
             Integer result = interpreter.parseAndExecute();
-            System.out.println("Result from running program:  " + result);
+            if (result != null) {
+                System.out.println(result);
+            } else {
+                System.out.println("Syntax error in code");
+            }
+            
         } while (running);
         cmd.close();
     }
