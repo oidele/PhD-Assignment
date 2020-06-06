@@ -3,5 +3,9 @@
   <var name="b" value="6"/>
   <var name="c"/>
   <add n1="a" n2="b" to="c"/>
+  <var name="c" value="5"/>
   <print n="c"/>
+  <var name="e" value="10"/>
+  <add n1="c" n2="c" to="c"/>
+  <print n="f"/>
 </program>

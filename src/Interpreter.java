@@ -58,18 +58,17 @@ public class Interpreter {
             if (currentToken.getTokenType() == tokenType.PROGRAM) {
                 Node childNode = parent.getFirstChild();
                 currentToken = this.getTokenFromNode(childNode);
-
                 for (Node node : IterableWrapper.makeIterable(childNodes)) {
                     currentToken = this.getTokenFromNode(childNode);
                     childNode = childNode.getNextSibling();
                     if (node.getNodeType() == 1) {
-                        if (currentToken.getTokenType() == tokenType.VAR) {
+                        if (currentToken.getTokenType() == tokenType.VAR && !isAddExists && !isPrintExists) {
                             isVarExists = true;
                             VarType varType = this.getNewVarObject(node);
                             if (varType != null){
                                 varList.add(varType);
                             }                            
-                        } else if (currentToken.getTokenType() == tokenType.ADD) {
+                        } else if (currentToken.getTokenType() == tokenType.ADD && !isPrintExists) {
                             isAddExists = true;
                             AddStatement addStatement = this.getNewAddObject(node);
                             if (addStatement != null){
@@ -78,9 +77,9 @@ public class Interpreter {
                         } else if (currentToken.getTokenType() == tokenType.PRINT) {
                             isPrintExists = true;                            
                             printVar = node.getAttributes().getNamedItem("n").getNodeValue();
-                        } else {
-                            System.out.println("Keyword not recognised - only VAR | ADD | PRINT keywords supported");
-                        }
+                        } else if (isVarExists && isAddExists && isPrintExists ) {
+                            break;
+                        } 
                     }   
                 } 
                 
